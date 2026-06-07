@@ -15,3 +15,6 @@
 
 # firebase emulator/debug noise
 firebase-debug.log
+keystore.properties
+*.keystore
+*.jks

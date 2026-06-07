@@ -1,21 +1,41 @@
 apply plugin: 'com.android.application'
 
+// Load signing config from a git-ignored keystore.properties (repo root) if present.
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProps = new Properties()
+if (keystorePropsFile.exists()) {
+    keystoreProps.load(new FileInputStream(keystorePropsFile))
+}
+
 android {
     compileSdkVersion 32
     defaultConfig {
         applicationId "com.esys.agenticpos"
         minSdkVersion 19
         targetSdkVersion 32
-        versionCode 5
-        versionName "2.5"
+        versionCode 6
+        versionName "2.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         useLibrary 'org.apache.http.legacy'
+    }
+    signingConfigs {
+        release {
+            if (keystorePropsFile.exists()) {
+                storeFile file(keystoreProps['storeFile'])
+                storePassword keystoreProps['storePassword']
+                keyAlias keystoreProps['keyAlias']
+                keyPassword keystoreProps['keyPassword']
+            }
+        }
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (keystorePropsFile.exists()) {
+                signingConfig signingConfigs.release
+            }
         }
     }
     compileOptions {
