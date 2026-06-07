@@ -51,7 +51,11 @@ public class Login {
     @SerializedName("shop_status")
     private String shopStatus;
 
+    @SerializedName("api_token")
+    private String apiToken;
 
+    @SerializedName("tenant_id")
+    private String tenantId;
 
 
 
@@ -126,6 +130,14 @@ public class Login {
 
     public String getTax() {
         return tax;
+    }
+
+    public String getApiToken() {
+        return apiToken;
+    }
+
+    public String getTenantId() {
+        return tenantId;
     }
 
 

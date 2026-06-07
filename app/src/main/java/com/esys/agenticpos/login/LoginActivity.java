@@ -120,6 +120,7 @@ public class LoginActivity extends BaseActivity {
                     String tax = response.body().getTax();
                     String currencySymbol = response.body().getCurrencySymbol();
                     String shopStatus = response.body().getShopStatus();
+                    String apiToken = response.body().getApiToken();
 
                     if (shopName != null || shopAddress != null || shopContact != null || shopEmail != null || tax != null || currencySymbol != null || shopStatus != null || staffId != null || staffName != null || userType != null) {
 
@@ -150,6 +151,9 @@ public class LoginActivity extends BaseActivity {
                             editor.putString(Constant.SP_SHOP_STATUS, shopStatus);
                             editor.putString(Constant.SP_CURRENCY_SYMBOL, currencySymbol);
                             editor.putString(Constant.SP_TAX, tax);
+
+                            //per-tenant API token: sent on every subsequent API request
+                            editor.putString(Constant.SP_API_TOKEN, apiToken);
 
 
                             //Saving values to Share preference

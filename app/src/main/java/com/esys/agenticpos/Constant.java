@@ -163,5 +163,9 @@ public class Constant {
 
     public static final String SP_VERIFICATION_CODE = "verification_code";
 
+    //per-tenant API token (multi-tenancy): saved at login, sent on every API request
+    public static final String SP_API_TOKEN = "api_token";
+    public static final String HEADER_TENANT_TOKEN = "X-Tenant-Token";
+
 
 }
