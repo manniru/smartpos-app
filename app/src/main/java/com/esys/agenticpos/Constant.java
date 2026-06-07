@@ -7,10 +7,10 @@ public class Constant {
     }
 
     //For retrofit base url must end with /
-    public static final String BASE_URL = "https://demo.onlinesoftsell.com/smartpos/api/";
+    public static final String BASE_URL = "https://pos.mannir.com.ng/api/";
 
     //For retrofit base url must end with /
-    public static final String PRODUCT_IMAGE_URL = "https://demo.onlinesoftsell.com/smartpos/product_images/";
+    public static final String PRODUCT_IMAGE_URL = "https://pos.mannir.com.ng/product_images/";
 
     //We will use this to store the user token number into shared preference
     public static final String SHARED_PREF_NAME = "com.esys.agenticpos"; //pcakage name+ id
